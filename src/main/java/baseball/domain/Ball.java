@@ -7,6 +7,9 @@ import java.util.Objects;
  * */
 public class Ball {
     private final int number;
+    public static final int MIN_NUMBER_RANGE = 1;
+    public static final int MAX_NUMBER_RAGE = 9;
+
 
     public Ball(Integer number) {
         this.number = number;
@@ -17,24 +20,20 @@ public class Ball {
      *  볼의 숫자는 1부터 ~ 9만 가질수 있다.
      * */
     private void validate() {
-        if (this.number > 9 || this.number < 1) {
+        if (this.number > MAX_NUMBER_RAGE || this.number < MIN_NUMBER_RANGE) {
             throw new IllegalArgumentException("볼의 숫자는 1~9를 가질 수 있습니다.");
         }
     }
 
-    public int getNumber() {
-        return number;
-    }
-
     @Override
-    public boolean equals(Object o) {
-        if (this == o) {
+    public boolean equals(Object object) {
+        if (this == object) {
             return true;
         }
-        if (o == null || getClass() != o.getClass()) {
+        if (object == null || getClass() != object.getClass()) {
             return false;
         }
-        Ball ball = (Ball) o;
+        Ball ball = (Ball) object;
         return number == ball.number;
     }
 

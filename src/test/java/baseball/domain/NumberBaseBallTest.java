@@ -6,6 +6,7 @@ import static org.assertj.core.api.Assertions.assertThatIllegalArgumentException
 
 import java.util.Arrays;
 import java.util.List;
+
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -48,6 +49,29 @@ class NumberBaseBallTest {
 
         assertThat(numberBaseBall.getPositionBall(new Ball(9)))
                 .isEqualTo(NumberBaseBall.EMPTY_POSITION);
+    }
+
+    @Test
+    @DisplayName("랜덤한 숫자넘버를 생성한다.")
+    void createRandomBall() {
+        NumberBaseBall randomBalls = NumberBaseBall.createRandomBalls();
+        assertThat(randomBalls).isNotNull();
+    }
+
+    @Test
+    @DisplayName("볼의 숫자가 같으면 numberBaseBall 클래스는 같다.")
+    void numberBaseBallEqual() {
+        NumberBaseBall numberBaseBall1 = new NumberBaseBall(
+                Arrays.asList(new Ball(3), new Ball(4), new Ball(5)));
+
+        NumberBaseBall numberBaseBall2 = new NumberBaseBall(
+                Arrays.asList(new Ball(3), new Ball(4), new Ball(5)));
+
+        NumberBaseBall numberBaseBall3 = new NumberBaseBall(
+                Arrays.asList(new Ball(3), new Ball(4), new Ball(1)));
+
+        assertThat(numberBaseBall1).isEqualTo(numberBaseBall2);
+        assertThat(numberBaseBall1).isNotEqualTo(numberBaseBall3);
     }
 
 }

@@ -1,7 +1,7 @@
 package baseball.domain;
 
 public enum Hint {
-    BALL, STRIKE, NOTTING, getHint;
+    BALL, STRIKE, NOTTING;
 
     public static Hint getHint(int position, Ball ball, NumberBaseBall targetBaseBall) {
         if (targetBaseBall.getPositionBall(ball) == position) {
