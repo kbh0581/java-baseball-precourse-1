@@ -14,5 +14,7 @@ public class Computer extends User {
         while (randomBall.equals(numberBaseBall)) {
             randomBall = NumberBaseBall.createRandomBalls();
         }
+
+        numberBaseBall = randomBall;
     }
 }
