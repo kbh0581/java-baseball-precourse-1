@@ -8,9 +8,7 @@ import java.util.List;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import baseball.Ball;
-
-public class BallTest {
+class BallTest {
 
     @Test
     @DisplayName("볼은 숫자는 1~9만 가질 수 있다")
