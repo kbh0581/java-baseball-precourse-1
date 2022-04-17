@@ -1,8 +1,9 @@
 package baseball.domain;
 
 
+
+import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.Objects;
 
@@ -19,6 +20,14 @@ public class NumberBaseBall {
         validDuplicateBall();
     }
 
+    //Integer 형으로 생성하는 메서드
+    public static NumberBaseBall createNumberBaseBall(List<Integer> balls) {
+        List<Ball> box = new ArrayList<>();
+        balls.forEach((ballNumber) -> box.add(new Ball(ballNumber)));
+        return new NumberBaseBall(box);
+    }
+
+
     public List<Ball> getBalls() {
         return balls;
     }
@@ -27,11 +36,8 @@ public class NumberBaseBall {
     * 랜덤한 볼을 생성하는 메서드
     * */
     public static NumberBaseBall createRandomBalls() {
-        List<Ball> randomBalls = new LinkedList<>();
-        Randoms.pickUniqueNumbersInRange(
-            Ball.MIN_NUMBER_RANGE, Ball.MAX_NUMBER_RAGE, NumberBaseBall.MAX_BALL_COUNT)
-                .forEach((number) -> randomBalls.add(new Ball(number)));
-        return new NumberBaseBall(randomBalls);
+        return createNumberBaseBall(Randoms.pickUniqueNumbersInRange(
+                Ball.MIN_NUMBER_RANGE, Ball.MAX_NUMBER_RAGE, NumberBaseBall.MAX_BALL_COUNT));
     }
 
     /*
@@ -46,7 +52,7 @@ public class NumberBaseBall {
      * */
     private void validate() {
         if (this.balls.size() != 3) {
-            throw new IllegalArgumentException("볼의 숫자는 "+ MAX_BALL_COUNT + "자리여야만 합니다.");
+            throw new IllegalArgumentException("볼의 숫자는 " + MAX_BALL_COUNT + "자리여야만 합니다.");
         }
     }
 

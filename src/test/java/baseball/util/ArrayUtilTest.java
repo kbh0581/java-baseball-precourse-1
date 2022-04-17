@@ -1,7 +1,6 @@
 package baseball.util;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -16,6 +15,7 @@ class ArrayUtilTest {
         assertThat(integers[0]).isEqualTo(new Integer(3));
         assertThat(integers[1]).isEqualTo(new Integer(4));
         assertThat(integers[2]).isEqualTo(new Integer(5));
+
     }
 
 }
