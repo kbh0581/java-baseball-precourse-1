@@ -1,5 +1,6 @@
 package baseball.domain;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatIllegalArgumentException;
 
 import java.util.Arrays;
@@ -19,5 +20,13 @@ class BallTest {
         failBallNumbers.forEach((number) ->
                 assertThatIllegalArgumentException().isThrownBy(() -> new Ball(number)));
 
+    }
+
+    @Test
+    @DisplayName("같은 숫자의 볼은 같다.")
+    void ballEqualTest() {
+        assertThat(new Ball(3)).isEqualTo(new Ball(3));
+        assertThat(new Ball(2)).isEqualTo(new Ball(2));
+        assertThat(new Ball(3)).isNotEqualTo(new Ball(4));
     }
 }

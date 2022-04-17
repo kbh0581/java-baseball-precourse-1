@@ -1,12 +1,14 @@
 package baseball.domain;
 
+import java.util.Objects;
+
 /**
  * BaseBall의 Ball의 해당되는 클래스
  * */
 public class Ball {
     private final int number;
 
-    public Ball(int number) {
+    public Ball(Integer number) {
         this.number = number;
         validate();
     }
@@ -22,5 +24,22 @@ public class Ball {
 
     public int getNumber() {
         return number;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        Ball ball = (Ball) o;
+        return number == ball.number;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(number);
     }
 }
