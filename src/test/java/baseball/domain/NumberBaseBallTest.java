@@ -1,6 +1,7 @@
 package baseball.domain;
 
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatIllegalArgumentException;
 
 import java.util.Arrays;
@@ -33,7 +34,20 @@ class NumberBaseBallTest {
 
         List<Ball> notOverlapBalls = Arrays.asList(new Ball(3), new Ball(2), new Ball(5));
         new NumberBaseBall(notOverlapBalls);
+    }
 
+    @Test
+    @DisplayName("볼의 위치를 찾아본다")
+    void getPositionBall() {
+        NumberBaseBall numberBaseBall = new NumberBaseBall(
+                Arrays.asList(new Ball(3), new Ball(2), new Ball(5)));
+
+        assertThat(numberBaseBall.getPositionBall(new Ball(3))).isEqualTo(0);
+        assertThat(numberBaseBall.getPositionBall(new Ball(2))).isEqualTo(1);
+        assertThat(numberBaseBall.getPositionBall(new Ball(5))).isEqualTo(2);
+
+        assertThat(numberBaseBall.getPositionBall(new Ball(9)))
+                .isEqualTo(NumberBaseBall.EMPTY_POSITION);
     }
 
 }

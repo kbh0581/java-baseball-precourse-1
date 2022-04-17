@@ -5,11 +5,18 @@ import java.util.List;
 
 public class NumberBaseBall {
     private final List<Ball> balls;
-
+    public static final int EMPTY_POSITION = -1;
     public NumberBaseBall(List<Ball> balls) {
         this.balls = balls;
         validate();
         validDuplicateBall();
+    }
+
+    /*
+     * 볼의 포지션확인
+     * */
+    public int getPositionBall(Ball ball) {
+        return balls.indexOf(ball);
     }
 
     /*
