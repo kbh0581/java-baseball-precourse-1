@@ -64,5 +64,5 @@ class NumberBaseBallResultTest {
         assertThat(numberBaseBallResult.toString()).isEqualTo("2볼 1스트라이크");
 
     }
-
 }
+

@@ -1,5 +1,6 @@
 package baseball.controller;
 
+import java.util.Arrays;
 
 import baseball.domain.Computer;
 import baseball.domain.Game;
@@ -11,7 +12,7 @@ import baseball.domain.Player;
 import baseball.domain.service.NumberBaseBallService;
 import baseball.view.InputView;
 import baseball.view.OutPutView;
-import java.util.Arrays;
+
 
 public class GameController {
     private final InputView inputView;

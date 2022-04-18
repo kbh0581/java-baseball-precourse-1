@@ -17,5 +17,4 @@ class ArrayUtilTest {
         assertThat(integers[2]).isEqualTo(new Integer(5));
 
     }
-
 }

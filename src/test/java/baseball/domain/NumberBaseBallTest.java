@@ -75,5 +75,4 @@ class NumberBaseBallTest {
         assertThat(numberBaseBall1).isEqualTo(numberBaseBall2);
         assertThat(numberBaseBall1).isNotEqualTo(numberBaseBall3);
     }
-
 }
