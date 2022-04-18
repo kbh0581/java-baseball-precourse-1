@@ -56,6 +56,8 @@ class NumberBaseBallTest {
     void createRandomBall() {
         NumberBaseBall randomBalls = NumberBaseBall.createRandomBalls();
         assertThat(randomBalls).isNotNull();
+        assertThat(randomBalls.getBalls().size() == 3).isTrue();
+
     }
 
     @Test
