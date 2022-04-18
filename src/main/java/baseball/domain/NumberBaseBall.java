@@ -36,8 +36,15 @@ public class NumberBaseBall {
     * 랜덤한 볼을 생성하는 메서드
     * */
     public static NumberBaseBall createRandomBalls() {
-        return createNumberBaseBall(Randoms.pickUniqueNumbersInRange(
-                Ball.MIN_NUMBER_RANGE, Ball.MAX_NUMBER_RAGE, NumberBaseBall.MAX_BALL_COUNT));
+        List<Integer> randomList = new ArrayList<>();
+        while (randomList.size() != MAX_BALL_COUNT) {
+            Integer randomValue = Randoms.pickNumberInRange(
+                    Ball.MIN_NUMBER_RANGE, Ball.MAX_NUMBER_RAGE);
+            if (!randomList.contains(randomValue)) {
+                randomList.add(randomValue);
+            }
+        }
+        return NumberBaseBall.createNumberBaseBall(randomList);
     }
 
     /*
