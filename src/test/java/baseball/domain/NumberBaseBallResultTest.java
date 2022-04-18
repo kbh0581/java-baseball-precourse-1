@@ -30,7 +30,13 @@ class NumberBaseBallResultTest {
     @DisplayName("숫자를 다맞출시 Collect, 아닐경우 Hint 반환")
     void checkNumberBaseResult() {
         NumberBaseBallResultStatus collect = numberBaseBallResult.check(collectNumber);
+        assertThat(numberBaseBallResult.getCheckStatus())
+                .isEqualTo(NumberBaseBallResultStatus.COLLECT);
+
         NumberBaseBallResultStatus hint = numberBaseBallResult.check(hintNumber);
+        assertThat(numberBaseBallResult.getCheckStatus())
+                .isEqualTo(NumberBaseBallResultStatus.HINT);
+
         assertThat(collect).isEqualTo(NumberBaseBallResultStatus.COLLECT);
         assertThat(hint).isEqualTo(NumberBaseBallResultStatus.HINT);
     }
@@ -44,6 +50,19 @@ class NumberBaseBallResultTest {
         assertThat(numberBaseBallResult.getNotingCount()).isEqualTo(1);
 
         assertThat(hint).isEqualTo(NumberBaseBallResultStatus.HINT);
+    }
+
+    @Test
+    @DisplayName("결과 값 Msg 테스트")
+    void resultMsg() {
+        numberBaseBallResult.check(hintNumber);
+        assertThat(numberBaseBallResult.toString()).isEqualTo("2스트라이크");
+        numberBaseBallResult.check(collectNumber);
+        assertThat(numberBaseBallResult.toString()).isEqualTo("3스트라이크");
+
+        numberBaseBallResult.check(NumberBaseBall.createNumberBaseBall(Arrays.asList(4, 3, 5)));
+        assertThat(numberBaseBallResult.toString()).isEqualTo("2볼 1스트라이크");
+
     }
 
 }
