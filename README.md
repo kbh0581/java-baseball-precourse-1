@@ -36,7 +36,7 @@
  * [X] 각 NumberBaseBall을 체크하여 힌트의 결과를 제공하는 기능 
      * 같은 수가 있으면 스트라이크, 다른 자리에 숫자가 있으면 볼, 숫자가 없으면 낫싱, 맞추면 승리
    
- * [X] 컴퓨터의 숫자를 생성하는 기능
+ * [X] 컴퓨터의 랜덤한 숫자를 생성하는 기능
    * 임의의 3개의 수 선택
    * 결과를 리턴하는 객체 생성
  
@@ -49,6 +49,38 @@
      * 예시) 1볼 1스트라이크 
  
  * [X] 게임이 종료되면 완전히 종료 혹은 다시 시작 기능 
+
+## 클래스 목록 
+* controller 패키지
+  * GameController : 숫자야구게임의 컨트롤러 역할을 담당
+  
+* domain 패키지 (model 담당)
+  * Class
+    * Ball : 숫자야구의 한자리의 볼넘버를 도메인을 담당.
+    * User : Computer 와 Player의 상위클래스
+    * Computer: 컴퓨터 도메인을 담당. 
+      * 랜덤 값 생성 
+    * Player : 플레이어의 도메인을 담당
+  
+    * Game : 게임도메인을 담당.
+    * NumberBaseBall : 숫자야구넘버 3자리에 대한 도메인 담당.
+    * NumberBaseBallResult : 숫자야구결과에 대한 상태를 담당하는 BO
+  
+  * Enum
+    * GameStatus: 게임 도메인에 대한 상태 
+    * Hint : 볼, 스트라이크,낫싱등 힌트 상태
+    * NumberBaseBallResultStatus : 숫자야구게임 플레이어와 컴퓨터간에 대한 상태
+    
+  * ServiceClass : 컴퓨터와 플레이어간의 결과를 확인하는 비지니스로직을 담당하는 서비스 클래스 
+    
+
+* util 패키지 
+  * ArrayUtil : Array에 대한 Util 클래스
+
+* view 패키지 
+  * InputView : 입력값화면을 담당
+  * OutPutVie : 출력 화면을 담당
+  
  
 
 ## 프로그램 제약 사항
